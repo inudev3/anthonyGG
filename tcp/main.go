@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net"
 )
 
@@ -61,12 +60,13 @@ func (s *Server) readLoop(conn net.Conn) {
 	}
 
 }
-func main() {
-	server := NewServer(":3000")
-	go func() {
-		for msg := range server.msgch {
-			fmt.Printf("received from connection (%s): %s\n", msg.from, string(msg.payload))
-		}
-	}()
-	log.Fatal(server.Start())
-}
+
+//func main() {
+//	server := NewServer(":3000")
+//	go func() {
+//		for msg := range server.msgch {
+//			fmt.Printf("received from connection (%s): %s\n", msg.from, string(msg.payload))
+//		}
+//	}()
+//	log.Fatal(server.Start())
+//}
